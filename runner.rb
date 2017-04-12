@@ -9,18 +9,37 @@ ActiveRecord::Base.logger = nil
 
 include View
 include ProductController
+include HistoryController
+include CartController
+
 if ARGV.any?
 	first_arg = ARGV[0]
-	option = ARGV[1]
+	id = ARGV[1].to_i
+	number = ARGV[2].to_i
 
 	case first_arg
 	when "products"
 		ProductController.show
+	
+
+	when "history"
+		HistoryController.show
+
+	when "carts"
+		CartController.show
+		
+
+	when "buy"
+		CartController.buy
+
+	when "add"
+		CartController.add(id,number)
+
+	when "remove"
+		CartController.remove(id,number)
+
+	when "help"
+		View.help
 	end
-
-	# when "history"
-
-
-
 
 end
