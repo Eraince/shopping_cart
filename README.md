@@ -14,14 +14,14 @@ It has following functions:
 ## How to use it(on your command line)
 
 ### Environment Setup
-1.clone the file
+1. clone the file
 	`git clone https://github.com/Eraince/shopping_cart.git`
-2.install the gem(specified in Gemfile)
+2. install the gem(specified in Gemfile)
 	`bundle install`
-3.create the database and migrate
+3. create the database and migrate
 	`be rake db:create`
 	`be rake db:migration`
-4.seed the database(optional, you can check the `seeds.rb` file first)
+4. seed the database(optional, you can check the `seeds.rb` file first)
 	`be rake db:seed`
 
 We can review the tasks that we have available by running `bundle exec rake -T`(specified in Rakefile); all of the tasks related to databse are provided.
