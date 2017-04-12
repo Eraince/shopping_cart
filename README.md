@@ -13,7 +13,7 @@ It has following functions:
 
 ## How to use it(on your command line)
 
-###Environment Setup
+### Environment Setup
 1.clone the file
 	`git clone https://github.com/Eraince/shopping_cart.git`
 2.install the gem(specified in Gemfile)
@@ -26,38 +26,38 @@ It has following functions:
 
 We can review the tasks that we have available by running `bundle exec rake -T`(specified in Rakefile); all of the tasks related to databse are provided.
 
-###List products
+### List products
 ```
 $be rake ruby runner.rb products
 ```
 View all the products with the detailed information. If you seed the database first, you should see a bunch of product.
 
-###List histories
+### List histories
 ```
 be rake ruby runner.rb history
 ```
 View all the histories about purchase. You are supposed to buy something first, otherwise, the history record is empty.
 
-###List shopping cart
+### List shopping cart
 ```
 be rake ruby runner.rb carts
 ```
 View all the products with detailed information in your shopping cart. You are supposed to add something first, otherwise, the shopping cart would be empty.
 
-###Add products to shopping cart
+### Add products to shopping cart
 ```
 be rake ruby runner.rb add 3 3
 ```
 Add the product with id=3 with the amount of 3. You can change the number based on your preference.
 Also, it is not allowed to add the amount which is larger than the available inventory. This is to avoid the inventory go below 0.
 
-###Remove products from shopping cart
+### Remove products from shopping cart
 ```
 be rake ruby runner.rb remove 2 3
 ```
 Remove the products with the amount you provide. If it is bigger than the number in tha cart, the cart will remove the whole products directly.
 
-###Buy products
+### Buy products
 ```
 be rake ruby runner.rb buy
 ```
@@ -65,6 +65,6 @@ It will check the available inventory first and buy all the products in your sho
 Also, if buying succesfully, it will automatically update the inventory and history.
 
 
-##Conclusion
+## Conclusion
 Thanks for checking my small application. Feel free to contact me at: PeiyuWang2016@u.northwestern.edu whenever you have questions about it. I'm happy to accept any advice.
 
