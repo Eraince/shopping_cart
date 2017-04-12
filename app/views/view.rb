@@ -52,7 +52,23 @@ module View
 	end
 
 	def self.help
-		puts "need to be finished."
+		command_menu = <<-MENU
+    	products 
+         --list all the products we have with detailed information on unit price, inventory,and title.
+    	carts
+    	 --list all the products in your shopping carts.
+    	history 
+    	 --list all the information about your past purchasing history.
+    	add product_id number
+         --add products to your shopping cart with the product_id and the amount you want to add to your cart.
+    	buy
+    	 --buy all the products in your shopping cart.
+    	remove product_id number
+    	 --remove the product from your cart with the product_id and the amount you want to remove from your cart.
+    	help
+         --will provide you with this menu.
+    MENU
+    puts command_menu
 	end
 	
 end
