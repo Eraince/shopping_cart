@@ -11,21 +11,23 @@ module View
 		end
 	end
 
-	def self.list_history(hitories)
+	def self.list_history(histories)
 		puts "Purchase History"
 		puts "product_id     number     total"
 		puts "-------------------------------"
 		histories.each do |history|
-			puts "#{history.product_id}    #{history.number}    #{history.total}"
+			product = Product.find(history.product_id)
+			puts "#{history.product_id}    #{product.title}   #{history.number}    #{history.total}"
 		end
 	end
 
 	def self.list_cart(carts)
 		puts "Shopping Cart"
-		puts "product_id       number      total"
+		puts "product_id       title   number      total"
 		puts "-----------------------------------"
-		carts.each do |history|
-			puts "#{history.product_id}    #{history.number}    #{history.total}"
+		carts.each do |cart|
+			product = Product.find(cart.product_id)
+			puts "#{product.id}   #{product.title}  #{cart.number}    #{cart.total}"
 		end
 	end
 
@@ -50,7 +52,7 @@ module View
 	end
 
 	def self.help
-
+		puts "need to be finished."
 	end
 	
 end

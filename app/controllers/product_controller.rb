@@ -9,7 +9,7 @@ module ProductController
 
 	def self.update_inventory(product_id,number)
 		product = Product.find(product_id)
-		product.number -= number
+		product.available_inventory -= number
 		product.save
 	end
 end

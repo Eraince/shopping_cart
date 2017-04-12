@@ -8,6 +8,6 @@ module HistoryController
 
 	def self.add_history(product_id,number,total)
 		new_history = History.create({product_id: product_id, number: number, total: total})
-		View.receipt(product.id,cart.number,total)
+		View.receipt(product_id,number,total)
 	end
 end
