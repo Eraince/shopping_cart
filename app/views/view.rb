@@ -3,31 +3,34 @@
 module View
 
 	def self.list_product(products)
-		puts "Available products"
-		puts "product_id   title    price   available_inventory"
-		puts "--------------------------------------------------"
+		puts "                          Available products"
+		puts "---------------------------------------------------------------------------"
+		puts "product_id       title                        price     available_inventory"
+		puts "---------------------------------------------------------------------------"
 		products.each do |product|
-			puts "#{product.id}          #{product.title}     #{product.price}     #{product.available_inventory}"
+			puts "    #{product.id}      #{product.title.ljust(30)}     #{product.price.to_s.ljust(10)}      #{product.available_inventory}"
 		end
 	end
 
 	def self.list_history(histories)
-		puts "Purchase History"
-		puts "product_id     number     total"
-		puts "-------------------------------"
+		puts "                           Purchase History"
+		puts "---------------------------------------------------------------------------"
+		puts "product_id           title                   number        total"
+		puts "---------------------------------------------------------------------------"
 		histories.each do |history|
 			product = Product.find(history.product_id)
-			puts "#{history.product_id}    #{product.title}   #{history.number}    #{history.total}"
+			puts "    #{history.product_id}        #{product.title.ljust(30)}   #{history.number.to_s.ljust(10)}    #{history.total}"
 		end
 	end
 
 	def self.list_cart(carts)
-		puts "Shopping Cart"
-		puts "product_id       title   number      total"
-		puts "-----------------------------------"
+		puts "                             Shopping Cart"
+		puts "---------------------------------------------------------------------------"
+		puts "product_id           title                 number         total"
+		puts "---------------------------------------------------------------------------"
 		carts.each do |cart|
 			product = Product.find(cart.product_id)
-			puts "#{product.id}   #{product.title}  #{cart.number}    #{cart.total}"
+			puts "    #{product.id}        #{product.title.ljust(30)}  #{cart.number.to_s.ljust(10)}    #{cart.total}"
 		end
 	end
 
@@ -49,6 +52,10 @@ module View
 	def self.delete_from_cart(product_id,number)
 		product = Product.find(product_id)
 		puts "You succesfully deleted #{number} #{product.title}(s)."
+	end
+
+	def self.invalid_input
+		puts "Invalid product_id. Check the product_id by check the product list."
 	end
 
 	def self.help

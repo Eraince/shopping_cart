@@ -19,47 +19,47 @@ It has following functions:
 2. install the gem(specified in Gemfile)
 	`bundle install`
 3. create the database and migrate
-	`be rake db:create`
-	`be rake db:migration`
+	`bundle exec rake db:create`
+	`bundle exec rake db:migration`
 4. seed the database(optional, you can check the `seeds.rb` file first)
-	`be rake db:seed`
+	`bundle exec rake db:seed`
 
 We can review the tasks that we have available by running `bundle exec rake -T`(specified in Rakefile); all of the tasks related to databse are provided.
 
 ### List products
 ```
-$be rake ruby runner.rb products
+$bundle exec ruby runner.rb products
 ```
 View all the products with the detailed information. If you seed the database first, you should see a bunch of product.
 
 ### List histories
 ```
-be rake ruby runner.rb history
+bundle exec ruby runner.rb history
 ```
 View all the histories about purchase. You are supposed to buy something first, otherwise, the history record is empty.
 
 ### List shopping cart
 ```
-be rake ruby runner.rb carts
+bundle exec ruby runner.rb carts
 ```
 View all the products with detailed information in your shopping cart. You are supposed to add something first, otherwise, the shopping cart would be empty.
 
 ### Add products to shopping cart
 ```
-be rake ruby runner.rb add 3 3
+bundle exec ruby runner.rb add 3 3
 ```
 Add the product with id=3 with the amount of 3. You can change the number based on your preference.
-Also, it is not allowed to add the amount which is larger than the available inventory. This is to avoid the inventory go below 0.
+Also, it is not allowed to add the amount which is larger than the available inventory. This is to avoid the inventory go below 0. Also, if you type the id that doesn't exsit in products, it won't make any changes.
 
 ### Remove products from shopping cart
 ```
-be rake ruby runner.rb remove 2 3
+bundle exec ruby runner.rb remove 3 1
 ```
-Remove the products with the amount you provide. If it is bigger than the number in tha cart, the cart will remove the whole products directly.
+Remove the products with the amount you provide. If it is bigger than the number in tha cart, the cart will remove the whole products directly. Also, if you type the id that doesn't exsit in your cart, it won't make any changes.
 
 ### Buy products
 ```
-be rake ruby runner.rb buy
+bundle exec ruby runner.rb buy
 ```
 It will check the available inventory first and buy all the products in your shopping cart.
 Also, if buying succesfully, it will automatically update the inventory and history.
