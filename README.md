@@ -64,6 +64,11 @@ $bundle exec ruby runner.rb buy
 It will check the available inventory first and buy all the products in your shopping cart.
 Also, if buying succesfully, it will automatically update the inventory and history.
 
+### Help
+```
+$bundle exec ruby runner.rb help
+```
+View all the available command.
 
 ## Conclusion
 Thanks for checking my small application. Feel free to contact me at: PeiyuWang2016@u.northwestern.edu whenever you have questions about it. I'm happy to accept any advice.

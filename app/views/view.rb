@@ -59,6 +59,10 @@ module View
 		puts "Invalid product_id. Check the product_id by check the product list."
 	end
 
+	def self.invalid_command
+		puts "Invalid command, please check help to see all the available comamnd."
+	end
+
 	def self.help
 		command_menu = <<-MENU
     	products 

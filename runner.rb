@@ -40,6 +40,9 @@ if ARGV.any?
 
 	when "help"
 		View.help
+
+	else
+		View.invalid_command
 	end
 
 end
