@@ -1,4 +1,6 @@
+# this module have all the function realted to history
 require_relative '../models/history'
+
 
 module HistoryController
 	def self.show

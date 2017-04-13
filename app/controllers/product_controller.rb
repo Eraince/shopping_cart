@@ -1,3 +1,4 @@
+# this module have all the function realted to product
 require_relative '../models/product'
 
 

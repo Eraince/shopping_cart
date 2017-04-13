@@ -1,3 +1,5 @@
+# this module have all the function realted to cart
+
 require_relative '../models/cart'
 require_relative '../models/product'
 
@@ -24,35 +26,43 @@ module CartController
 	end
 
 	def self.add(product_id,number)
-		product = Product.find(product_id)
-		inventory = product.available_inventory
-		if inventory < number
-			View.out_of_stock(product_id)
-		else
-			total = product.price * number
-			if Cart.exists?(product_id: product_id)
-				cart = Cart.find_by(product_id: product_id)
-				cart.number += number
-				cart.total += total
-				cart.save
+		if Product.exists?(product_id)
+			product = Product.find(product_id)
+			inventory = product.available_inventory
+			if inventory < number
+				View.out_of_stock(product_id)
 			else
-				Cart.create(product_id: product_id, number: number, total: total)
+				total = product.price * number
+				if Cart.exists?(product_id: product_id)
+					cart = Cart.find_by(product_id: product_id)
+					cart.number += number
+					cart.total += total
+					cart.save
+				else
+					Cart.create(product_id: product_id, number: number, total: total)
+				end
+				View.add_to_cart(product_id,number)
 			end
-			View.add_to_cart(product_id,number)
+		else
+			View.invalid_input
 		end
 	end
 
 	def self.remove(product_id,number)
-		cart = Cart.find_by(product_id: product_id)
-		product = Product.find(product_id)
-		if number >= cart.number
-			Cart.destroy(cart.id)
+		if Cart.exists?(product_id: product_id)
+			cart = Cart.find_by(product_id: product_id)
+			product = Product.find(product_id)
+			if number >= cart.number
+				Cart.destroy(cart.id)
+			else
+				cart.number -= number
+				cart.total = cart.number * product.price
+				cart.save
+			end
+			View.delete_from_cart(product_id,number)
 		else
-			cart.number -= number
-			cart.total = cart.number * product.price
-			cart.save
+			View.invalid_input
 		end
-		View.delete_from_cart(product_id,number)
 	end
 
 
