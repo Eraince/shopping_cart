@@ -1,3 +1,5 @@
+# this module have all the function realted to cart
+
 require_relative '../models/cart'
 require_relative '../models/product'
 

@@ -1,3 +1,5 @@
+# seed file to make it easier to start using this application. If you want to add more sample, just follow the format below, and run `bundle exec rake db:seed` again.
+
 Product.create(title: "The Drape Trench Coat",available_inventory: 130,price: 138)
 Product.create(title: "The Slouchy Chino Pant",available_inventory: 100,price: 58)
 Product.create(title: "The Modern Loafer Mule",available_inventory: 150,price: 155)

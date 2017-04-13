@@ -1,4 +1,5 @@
 
+# all functions which are realted to display information on console is in the View module.
 
 module View
 
